@@ -20,12 +20,12 @@ ENV KAFKA_HOME /usr/local/kafka
 ENV PATH $PATH:$KAFKA_HOME/bin
 
 #kafka config copy
+ADD config/zookeeper.properties $KAFKA_HOME/config/zookeeper.properties
+ADD config/server.properties $KAFKA_HOME/config/server.properties
 ADD config/start-kafka.sh /start-kafka.sh
 RUN chmod +x /start-kafka.sh
+RUN mkdir -p /tmp/zookeeper
 
 #port
 EXPOSE 2181 2888 3888
-EXPOSE
 EXPOSE 9092 ${JMX_PORT}
-
-CMD ["/start-kafka.sh"]
