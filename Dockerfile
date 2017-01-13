@@ -29,3 +29,6 @@ RUN mkdir -p /tmp/zookeeper
 #port
 EXPOSE 2181 2888 3888
 EXPOSE 9092 ${JMX_PORT}
+
+#CMD ["/start-kafka.sh"]
+RUN echo "/start-kafka.sh" >> ~/.bashrc
